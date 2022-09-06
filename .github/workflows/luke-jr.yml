@@ -1,0 +1,33 @@
+# This workflow will wget Luke's files each night at 0 UTC and add them to this repository in the luke-jr branch
+name: luke-jr
+
+on:
+  schedule:
+    - cron: '0 0 * * *'
+  workflow_dispatch:
+
+jobs:
+  luke-jr:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+    - name: Download files
+      run: |
+        wget --cut-dirs=5 -r -nH -e robots=off -np -R "index.html*" https://luke.dashjr.org/programs/bitcoin/files/charts/data/
+    - name: Commit changes
+      run: |
+        git config --local user.email "0xb10c+github-actions[bot]@users.noreply.github.com"
+        git config --local user.name "github-actions[bot]"
+        git checkout luke-jr
+        git add *.txt
+        git add *.csv
+        git add *.json
+        git commit -m "Auto updated luke-jr files: $(date)" -a || true
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: luke-jr
