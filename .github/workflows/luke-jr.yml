@@ -18,15 +18,14 @@ jobs:
       run: |
         git config --local user.email "0xb10c+github-actions[bot]@users.noreply.github.com"
         git config --local user.name "github-actions[bot]"
+        # make copy of script to retain it after switching branches
+        cp download-luke-jr-data.sh script.sh
         git checkout luke-jr
     - name: Download files
-      run: |
-        wget --cut-dirs=5 -r -nH -e robots=off -np -R "index.html*" https://luke.dashjr.org/programs/bitcoin/files/charts/data/
+      run: ./script.sh
     - name: Commit changes
       run: |
         git add *.txt
-        git add *.csv
-        git add *.json
         git commit -m "Auto updated luke-jr files: $(date)" -a || true
     - name: Push changes
       uses: ad-m/github-push-action@master
