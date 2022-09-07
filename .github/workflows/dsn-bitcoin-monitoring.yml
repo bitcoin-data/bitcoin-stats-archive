@@ -67,7 +67,7 @@ jobs:
         wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/whois,asn_description_all.gp
         #
         # --- Observed Addresses ---
-        # 
+        #
         # Unique Addresses per Day
         # Desc: Number of unique addresses observed in unsolicted ADDR messages per day. The number of unreachable addresses is an estimate of the number of unreachable peers in the Bitcoin P2P network (see Research).
         # NO DATA!
@@ -80,15 +80,15 @@ jobs:
         #
         # Current Block Propagation Delay Distribution
         # Desc: The elapsed time between the first reception of an INV message announcing a new block and the subsequent receptions from other peers is shown here. This plot does not show when network peers receive blocks, only when they announce new blocks to our monitor peers. Blocks that were relayed by fewer than 50 % of the peers are ignored.
-        wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curblock.gpd
+        # wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curblock.gpd
         #
         # Block Propagation Delay History
         # Desc: Based on above data we calculated the time it takes until 50% (90% resp.) of network peers announce a specific block.
         # already loaded above: https://www.dsn.kastel.kit.edu/bitcoin/data/invstat.gpd
-        # 
+        #
         # Current Transaction Propagation Delay Distribution
         # Desc: The elapsed time between the first reception of an INV message announcing a new transaction and the subsequent receptions from other peers is shown here. This plot does not show when network peers receive transactions, only when they announce new transactions to our monitor peers. Transactions that were relayed by fewer than 50 % of the peers are ignored.
-        wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curtx.gpd
+        # wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curtx.gpd
         #
         # Transaction Propagation Delay History
         # Dec: Based on above data we calculated the time it takes until 50% (90% resp.) of network peers announce a specific transaction.
@@ -98,8 +98,8 @@ jobs:
         #
         # Current Latency Distribution
         # Desc: CDF of the current measured latency using ICMP/TYP SYN Pings and Bitcoin Pings.
-        wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curicmp.gpd
-        wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curbtc.gpd
+        # wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curicmp.gpd
+        # wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curbtc.gpd
         #
         # Latency History
         # Desc: Median Latency over time using ICMP/TYP SYN Pings and Bitcoin Pings.
@@ -110,11 +110,11 @@ jobs:
         # 
         # Announcements per Peer
         # Desc: A considerable number of peers on the Bitcoin P2P network do not relay transactions or blocks to our monitor peer. This plot shows for each peer (x-axis) the number of announced hashes per hour.
-        wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curactivity.gpd
+        # wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curactivity.gpd
         #
         # Announcements per Hash
         # Desc: This plot shows for each hash (x-axis) the number of announced peers that announced that hash per hour.
-        wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curinv.gpd
+        # wget -N https://www.dsn.kastel.kit.edu/bitcoin/data/curinv.gpd
         #
     - name: Commit changes
       run: |
