@@ -12,7 +12,7 @@ jobs:
   dsn-bitcoin-monitoring:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v5
       with:
         persist-credentials: false
         fetch-depth: 0
@@ -29,6 +29,10 @@ jobs:
       run: |
         git add *.gpd
         git add *.gp
+        git add I/*.gp
+        git add I/*.gpd
+        git add N/*.gp
+        git add N/*.gpd
         git commit -m "Auto updated dsn-bitcoin-monitoring files: $(date)" -a || true
     - name: Push changes
       uses: ad-m/github-push-action@master

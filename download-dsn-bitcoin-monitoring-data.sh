@@ -101,3 +101,16 @@ declare -a FILES=(
 for file in ${FILES[@]}; do
   wget -O $file $URL/$file
 done
+
+# There are two more DSN setups that collect data: "I" and "N". Fetch data from these too.
+mkdir -p I
+URL=https://www.dsn.kastel.kit.edu/bitcoinI/data/
+for file in ${FILES[@]}; do
+  wget -O I/$file $URL/$file
+done
+
+mkdir -p N
+URL=https://www.dsn.kastel.kit.edu/bitcoinN/data/
+for file in ${FILES[@]}; do
+  wget -O N/$file $URL/$file
+done
